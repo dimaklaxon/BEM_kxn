@@ -1,0 +1,34 @@
+block('footer')(
+    content()(function() {
+        var ctx = this.ctx;
+        return {
+            elem: 'inner',
+            content: [
+                ctx.menu && {
+                    elem: 'menu',
+                    content: ctx.menu
+                },
+                (typeof ctx.additional === 'boolean' && !ctx.additional) || {
+                    elem: 'additional',
+                    content: ctx.additional || 'Сделано в Альфа-Лаборатории'
+                },
+                {
+                    elem: 'info',
+                    content: [
+                        {
+                            block: 'social',
+                            mix: { block: this.block, elem: 'social' },
+                            mods: { theme: ctx.mods.theme },
+                            networks: this.ctx.networks
+                        },
+                        {
+                            block: 'copyright',
+                            mods: { theme: ctx.mods.theme }
+                        }
+                    ]
+                }
+            ]
+        };
+    })
+
+);

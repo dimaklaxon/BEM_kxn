@@ -1,0 +1,12 @@
+block('form')(
+    def()(function() {
+        var mods = this.mods;
+        return applyNext({
+            _mods: {
+                theme: mods.theme,
+                size: mods.size,
+                view: mods.view
+            }
+        });
+    })
+);

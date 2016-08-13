@@ -1,0 +1,156 @@
+:root {
+  --buttonRadius: 4px;
+}
+
+.button {
+    font-family: 'Roboto', sans-serif;
+
+    position: relative;
+    display:  inline-block;
+    box-sizing: border-box;
+
+    padding: 0;
+    margin: 0;
+
+    user-select: none;
+
+    border-radius: var(--buttonRadius);
+
+    outline: 0;
+
+    text-align:  center;
+    white-space: nowrap;
+
+    transition: all 200ms ease;
+
+    cursor: pointer;
+}
+
+.button + .button {
+    margin-left: 10px;
+}
+
+.button::-moz-focus-inner {
+    padding: 0;
+
+    border: 0;
+}
+
+.button__text {
+    position: relative;
+    display:  inline-block;
+
+    /* width: 100%; */
+    overflow: hidden;
+    text-overflow:  ellipsis;
+    vertical-align: middle;
+
+    font-weight: 300;
+}
+
+.button__icon {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 0px;
+    padding-right: 10px;
+}
+
+.button_type_link {
+    text-decoration: none;
+}
+
+.button_focused-hard {
+    z-index: 1;
+}
+
+.button_disabled {
+    cursor: default;
+
+    .button__icon {
+        opacity: 0.3;
+    }
+}
+
+.button_view_action .button__text,
+.button_view_extra .button__text,
+.button_view_other .button__text {
+    font-weight: 500;
+}
+
+.button > :last-child {
+    padding-right: 0;
+}
+
+.button_size_s {
+    font-size: 13px;
+    height: 30px;
+    line-height: 16px;
+
+    padding: 4px 15px;
+
+    .button__icon {
+        margin-left: -4px;
+    }
+}
+
+.button_size_m {
+    font-size: 16px;
+    height: 40px;
+
+    line-height: 20px;
+
+    padding: 6px 20px;
+
+    .button__icon {
+        margin-left: -8px;
+    }
+}
+
+.button_size_l {
+    font-size: 18px;
+    height: 50px;
+    line-height: 24px;
+
+    padding: 7px 25px;
+
+    .button__icon {
+        margin-left: -12px;
+        min-width: 2px;
+    }
+}
+
+.button_size_xl {
+    font-size: 20px;
+    height: 60px;
+    line-height: 30px;
+
+    padding: 13px 30px;
+
+    .button__icon {
+        margin-left: -16px;
+        min-width: 6px;
+    }
+}
+
+
+.control-group  {
+    .button {
+        border-radius: 0;
+        border-right-color: transparent;
+    }
+
+    > .button:first-child,
+    > :first-child .button {
+        border-radius: var(--buttonRadius) 0 0 var(--buttonRadius);
+    }
+
+    > .button:last-child,
+    > :last-child .button {
+        border-radius: 0 var(--buttonRadius) var(--buttonRadius) 0;
+    }
+
+    > :only-child .button {
+        border-radius: var(--buttonRadius);
+    }
+}

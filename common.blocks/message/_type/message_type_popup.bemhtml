@@ -1,0 +1,10 @@
+block('message').mod('type', 'popup')(
+    def()(function() {
+        var _popupMods = (this._popup && this._popup.mods) || {};
+        return applyNext({
+            _popup: {
+                mods: this.extend(this.mods, _popupMods)
+            }
+        });
+    })
+);

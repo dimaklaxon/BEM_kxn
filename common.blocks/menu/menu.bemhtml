@@ -1,0 +1,7 @@
+block('menu')(
+    def()(function() {
+        return applyNext({
+            _menuMods: this.mods
+        });
+    })
+);

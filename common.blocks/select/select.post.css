@@ -1,0 +1,75 @@
+.select {
+    display: inline-block;
+    vertical-align: top;
+    min-width: 150px;
+}
+
+.select__button {
+    width: 100%;
+    text-align: left;
+    vertical-align: top;
+}
+
+.select__popup {
+    padding: 0;
+}
+
+.select__menu {
+    overflow: auto;
+
+    .menu-item:first-child {
+        border-radius: 4px 4px 0 0;
+    }
+    .menu-item:last-child {
+        border-radius: 0 0 4px 4px;
+    }
+}
+
+.select__tick {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    height: 100%;
+
+    background-position: center;
+
+    transition: all 0.1s ease-out;
+    opacity: .9;
+}
+
+.select_disabled .select__tick {
+    opacity: .3;
+}
+
+.select_size_s .select__button,
+.select_size_m .select__button {
+    padding-right: 30px;
+    padding-left: 10px;
+}
+
+.select_size_l .select__button,
+.select_size_xl .select__button {
+    padding-right: 34px;
+    padding-left: 15px;
+}
+
+.select__button.button_hovered .select__tick {
+    opacity: 1;
+}
+
+.select_size_s .select__tick {
+    right: 5px;
+}
+
+.select_size_m .select__tick {
+    right: 2px;
+}
+
+.select_size_l .select__tick {
+    right: 0px;
+}
+
+.select_size_xl .select__tick {
+    right: 0px;
+}

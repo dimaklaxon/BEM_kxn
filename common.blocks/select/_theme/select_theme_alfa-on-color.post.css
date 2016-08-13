@@ -1,0 +1,47 @@
+.select_theme_alfa-on-color {
+
+    @each $size in s, m, l, xl {
+        &.select_size_$(size) .select__tick {
+            background-image: url(../__tick/select__tick_theme_alfa-on-color__$(size).svg);
+        }
+    }
+
+    &.select_focused,
+    &.select_focused-hard,
+    &.select_opened {
+
+        .select__button {
+            border-color: rgba(255, 255, 255, .9);
+            box-shadow: 0px 0px 0px 1px rgba(255, 255, 255, .9);
+
+            background-color: rgba(0, 0, 0, .15);
+        }
+
+        .select__button.button_hovered {
+            background: transparent;
+            box-shadow: none;
+            border-color: rgba(255, 255, 255, .9);
+        }
+
+    }
+
+    &.select_invalid {
+
+        .select__button {
+            border-color: rgba(248, 96, 101, .85);
+        }
+
+        &.select_focused,
+        &.select_focused-hard,
+        &.select_opened {
+
+            .select__button {
+                border-color: rgba(248, 96, 101, .85);
+                box-shadow: 0px 0px 0px 1px rgba(248, 96, 101, .85);
+                background: rgba(248, 96, 101, .08);
+            }
+
+        }
+    }
+
+}

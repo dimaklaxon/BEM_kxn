@@ -1,0 +1,57 @@
+block('input').mod('has-autocomplete', true)(
+    def()(function() {
+        var ctx = this.ctx;
+
+        if (!ctx.options)
+            throw Error('input_has-autocomlele: should has mode `options`');
+
+        return applyNext({ _input: ctx });
+    }),
+    elem('box')(
+        content()(function() {
+
+            function mapItems(item) {
+                if (item.group) {
+                    return {
+                        elem: 'group',
+                        title: item.title,
+                        content: item.group.map(mapItems)
+                    };
+                } else {
+                    return {
+                        block: 'menu-item',
+                        val: item.val,
+                        data: item.data,
+                        content: item.content
+                    };
+                }
+            }
+
+            return [
+                applyNext(),
+                {
+                    block: 'popup',
+                    mix: { block: this._input.block, elem: 'popup' },
+                    mods: {
+                        target: 'anchor',
+                        theme: this._input.mods.theme,
+                        size: this._input.mods.size
+                    },
+                    directions: ['bottom-left', 'bottom-right'],
+                    content: [
+                        {
+                            block: 'menu',
+                            mix: { block: this._input.block, elem: 'menu' },
+                            mods: {
+                                mode: 'radio-check',
+                                theme: this._input.mods.theme,
+                                size: this._input.mods.size
+                            },
+                            content: this._input.options.map(mapItems)
+                        }
+                    ]
+                }
+            ];
+        })
+    )
+);

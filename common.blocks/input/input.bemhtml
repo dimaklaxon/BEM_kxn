@@ -1,0 +1,15 @@
+block('input')(
+    def()(function() {
+        var mods = this.mods;
+        return applyNext({
+            _mods: {
+                theme: mods.theme,
+                size: mods.size
+            }
+        });
+    }),
+    match(function() { return this.ctx.icon; }).def()(function() {
+        this.mods['has-icon'] = true;
+        return applyNext();
+    })
+);

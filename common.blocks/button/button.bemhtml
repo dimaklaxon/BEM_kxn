@@ -1,0 +1,36 @@
+block('button')(
+    def()(function() {
+        var mods = this._mods || this.mods;
+        return applyNext({
+            _mods: {
+                theme: mods.theme,
+                size: mods.size
+            }
+        });
+    }),
+
+    match(function() {
+        return !this.mods.view && this.mods.checked;
+    }).def()(function() {
+        this.mods.view = this._view;
+        return applyNext();
+    }),
+
+    js()(function() {
+        return this.extend(
+            applyNext(),
+            { checkedView: this.mods.view || this._view }
+        );
+    }),
+
+    content()(function() {
+        var ctx = this.ctx,
+            content = [ctx.icon && { elem: 'icon', content: ctx.icon }];
+        ctx.text && content.push({ elem: 'text', content: ctx.text });
+        return content;
+    },
+
+    match(function() { return typeof this.ctx.content !== 'undefined'; })(function() {
+        return this.ctx.content;
+    }))
+);

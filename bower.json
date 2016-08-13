@@ -1,0 +1,26 @@
+{
+  "name": "ui",
+  "version": "5.0.0",
+  "description": "Alfa-Bank UI",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alfa-bank-dev/ui.git"
+  },
+  "ignore": [
+    "node_modules",
+    "libs"
+  ],
+  "dependencies": {
+    "bem-components": "2.5.0",
+    "bem-typography": "1.1.0",
+    "bem-forms": "https://github.com/bem-contrib/bem-forms.git#v1.0.0",
+    "bem-grid": "^2.3.2"
+  },
+  "devDependencies": {
+    "bem-pr": "https://github.com/alfa-bank-dev/bem-pr.git#28853d9"
+  },
+  "resolutions": {
+    "bem-components": "2.5.0",
+    "bem-core": "2.9.0"
+  }
+}

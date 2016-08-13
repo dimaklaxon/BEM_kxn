@@ -1,0 +1,143 @@
+.radio {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+
+    display: inline-block;
+    position: relative;
+
+    cursor: pointer;
+}
+
+.radio__control {
+    position: absolute;
+    z-index: -1;
+
+    margin: 0;
+
+    opacity: 0;
+}
+
+.radio__box {
+    position: absolute;
+    display:  inline-block;
+
+    border-radius: 50%;
+    box-sizing: border-box;
+
+    &:after {
+        position: absolute;
+
+        top: 50%;
+        left: 50%;
+
+        content: '';
+
+        visibility: hidden;
+        opacity: 0;
+
+        border-radius: 50%;
+
+        transition: transform .05s ease-out,
+                    opacity .05s ease-out,
+                    visibility 0s linear .05s;
+    }
+}
+
+.radio__text {
+    display: inline-block;
+}
+
+.radio_size_m {
+    font-size: 16px;
+
+    .radio__box {
+        width: 14px;
+        height: 14px;
+
+        margin-right: 6px;
+
+        &:after {
+            margin-top: -3px;
+            margin-left: -3px;
+
+            width: 6px;
+            height: 6px;
+        }
+    }
+
+    .radio__text {
+        padding-left: 20px;
+    }
+}
+
+.radio_size_l {
+    font-size: 22px;
+
+    .radio__box
+    {
+        width: 18px;
+        height: 18px;
+
+        margin-right: 10px;
+
+        &:after
+        {
+            margin-top: -4px;
+            margin-left: -4px;
+
+            width: 8px;
+            height: 8px;
+        }
+    }
+
+    .radio__text {
+        padding-left: 28px;
+    }
+}
+
+.radio_checked {
+
+    .radio__box:after {
+        visibility: visible;
+        opacity:    1;
+    }
+}
+
+.radio_disabled {
+    cursor: default;
+}
+
+.radio_type_button {
+    display: inline-block;
+
+    .radio__control {
+        position: absolute;
+
+        visibility: hidden;
+    }
+
+    &.radio_checked .button__text {
+        font-weight: 300;
+    }
+
+    /* FIXME: maybe remove cascade? */
+    .button_checked {
+        cursor: default;
+    }
+}
+
+.radio_invalid {
+
+    .radio__box {
+        border-color: rgba(248, 96, 101, .85);
+    }
+
+    &.radio_focused,
+    &.radio_hovered {
+
+        .radio__box {
+            border-color: rgba(248, 96, 101, .85);
+            box-shadow: 0px 0px 0px 1px rgba(248, 96, 101, .85);
+        }
+    }
+}

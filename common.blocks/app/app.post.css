@@ -1,0 +1,9 @@
+.app__title, .app__menu, .app__content {
+    width: 700px;
+    margin: 0 auto;
+}
+
+.app__menu {
+    margin-bottom: 40px;
+}
+

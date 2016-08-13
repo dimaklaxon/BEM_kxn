@@ -1,0 +1,89 @@
+:root {
+    --placeholderColorOnWhite: rgba(0, 0, 0, 0.3);
+}
+.input_theme_alfa-on-white {
+
+    background: rgba(255, 255, 255, .9);
+    color: rgba(0, 0, 0, .9);
+
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, .3);
+
+    .input__control {
+        color: rgba(0, 0, 0, .9);
+        background: transparent;
+
+        &::-webkit-input-placeholder {
+            color: var(--placeholderColorOnWhite);
+        }
+
+        &:-ms-input-placeholder {
+            color: var(--placeholderColorOnWhite);
+        }
+
+        &::-moz-placeholder {
+            color: var(--placeholderColorOnWhite);
+        }
+    }
+
+    .input__clear {
+        background-image: url(../__clear/input__clear_white.svg);
+    }
+
+    &.input_has-icon .input__icon {
+        color: rgba(0, 0, 0, .9);
+
+        opacity: .6
+    }
+
+    &.input_mode_link {
+        background: rgba(255, 255, 255, 0);
+        border-color: transparent;
+
+        &.input_hovered {
+            background: rgba(255, 255, 255, .3);
+        }
+
+        &.input_focused {
+            background: rgba(255, 255, 255, 1);
+        }
+    }
+
+    &.input_hovered,
+    &.input_focused {
+        border-color: rgba(0, 0, 0, .9);
+    }
+
+    &.input_focused {
+        border-color: rgba(0, 0, 0, .9);
+        box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, .9);
+
+        background: rgba(0, 0, 0, .08);
+    }
+
+    &.input_disabled {
+        border-color: transparent;
+
+        background: rgba(0, 0, 0, .08);
+
+        .input__box,
+        .input__control {
+            color: rgba(0, 0, 0, .3);
+        }
+
+        .input__icon {
+            opacity: .3;
+        }
+    }
+
+    &.input_size_s .input__clear,
+    &.input_size_m .input__clear {
+        background-size: 10px;
+    }
+
+    &.input_size_l .input__clear,
+    &.input_size_xl .input__clear {
+        background-size: 14px;
+    }
+}

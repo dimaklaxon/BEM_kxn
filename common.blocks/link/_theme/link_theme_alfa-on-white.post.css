@@ -1,0 +1,24 @@
+.link_theme_alfa-on-white {
+    color: rgba(0, 0, 0, .9);
+
+    .link__text {
+        border-color: rgba(0, 0, 0, .4);
+    }
+
+    &.link_hovered,
+    &.link_focused {
+        color: rgba(178, 12, 0, 1);
+
+        .link__text {
+            border-color: rgba(178, 12, 0, .4);
+        }
+    }
+
+    &.link_disabled {
+        color: rgba(0, 0, 0, .3);
+
+        .link__text {
+            border-color: transparent;
+        }
+    }
+}

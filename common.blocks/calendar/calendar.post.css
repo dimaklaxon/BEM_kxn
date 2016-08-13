@@ -1,0 +1,142 @@
+.calendar {
+    color: rgba(0, 0, 0, .9);
+    background: #fff;
+
+    display: inline-block;
+
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+
+    padding: 0;
+    border-radius: 4px;
+
+    box-sizing: border-box;
+}
+
+.calendar__name {
+    text-align: center;
+}
+
+.calendar__layout {
+    border-spacing: 0;
+    border-collapse: separate;
+}
+
+.calendar__title {
+    padding: 20px 15px 5px;
+    line-height: 20px;
+    vertical-align: middle;
+}
+
+.calendar__layout {
+    padding: 0 15px 15px;
+}
+
+.calendar__dayname,
+.calendar__day {
+    font-size: 13px;
+}
+
+.calendar__dayname {
+    line-height: 34px;
+    font-weight: 300;
+
+    font-size: 11px;
+    cursor: default;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.calendar__day {
+    line-height: 30px;
+
+    width: 30px;
+
+    text-align: center;
+}
+
+.calendar__inner {
+    cursor: pointer;
+}
+
+.calendar__arrow {
+    width: 18px;
+    height: 18px;
+    opacity: 0.3;
+    cursor: pointer;
+    transition: all 0.1s ease-out;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.calendar__arrow:hover {
+    opacity: 1;
+}
+
+.calendar__arrow_direction_left {
+    float: left;
+}
+
+.calendar__arrow_direction_right {
+    float: right;
+}
+
+.calendar__day_type_weekend {
+    font-weight: bold;
+}
+
+.calendar__day_state_current {
+    color: #fff;
+    position: relative;
+    z-index: 2;
+
+    margin: 0 -1px 0 0;
+
+    text-align: center;
+
+    outline: 0;
+
+    user-select: none;
+}
+
+.calendar__day_state_current:after {
+    background: rgba(178, 12, 0, 1);
+}
+
+.calendar__day_state_current:after,
+.calendar__day_state_current:before {
+    position: absolute;
+    top: 0;
+    right: -1px;
+    bottom: 0;
+    left: -1px;
+
+    content: '';
+
+    border-radius: 3px;
+}
+
+.calendar__day_state_current:after {
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+}
+
+.calendar__day_state_current .calendar__inner {
+    position: relative;
+    z-index: 1;
+}
+
+.calendar__day_type_off .calendar__inner,
+.calendar__day_type_weekend-off .calendar__inner {
+    cursor: default;
+    opacity: .3;
+}
+
+.calendar__arrow_disabled {
+    visibility: hidden;
+}
+
+

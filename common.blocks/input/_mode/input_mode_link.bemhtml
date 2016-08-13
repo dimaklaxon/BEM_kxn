@@ -1,0 +1,24 @@
+block('input').mod('mode', 'link')(
+    def()(function() {
+        if (!this.ctx.val) this.ctx.mods.empty = true;
+        return applyNext({ _input: this.ctx });
+    }),
+
+    elem('box')(
+        content()(function() {
+            return [
+                {
+                    block: 'link',
+                    mix: { block: this.block, elem: 'trigger' },
+                    mods: {
+                        theme: this._input.mods.theme,
+                        pseudo: true,
+                        disabled: this._input.mods.disabled
+                    },
+                    text: this._input.val || this._input.placeholder
+                },
+                applyNext()
+            ];
+        })
+    )
+);

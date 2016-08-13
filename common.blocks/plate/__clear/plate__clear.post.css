@@ -1,0 +1,16 @@
+/* FIXME: maybe remove cascade? */
+.plate__clear > .icon {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+
+    opacity: .6;
+
+    transition: opacity .1s ease-out;
+
+    &:hover {
+        opacity: 1;
+    }
+
+    cursor: pointer;
+}

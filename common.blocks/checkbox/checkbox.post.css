@@ -1,0 +1,148 @@
+.checkbox {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+
+    display: inline-block;
+    position: relative;
+
+    cursor: pointer;
+
+    user-select: none;
+}
+
+.checkbox__control {
+    position: absolute;
+    z-index: -1;
+
+    margin: 0;
+
+    opacity: 0;
+}
+
+.checkbox__box {
+    display: inline-block;
+    position: absolute;
+
+    border-radius: 3px;
+
+    &:after {
+        position: absolute;
+        top: -1px;
+        left: 2px;
+
+        content: '';
+
+        background-size: 100%;
+
+        visibility: hidden;
+        opacity: 0;
+
+        background-image: url(__box/checkbox__box.svg);
+        background-repeat: no-repeat;
+
+        transition: transform 50ms ease-out,
+                    opacity 50ms ease-out;
+    }
+}
+
+.checkbox__text {
+    display: inline-block;
+}
+
+.checkbox_size_m {
+    font-size: 16px;
+
+    .checkbox__box {
+        top: 2px;
+
+        width: 14px;
+        height: 14px;
+
+        margin-right: 6px;
+
+        &:after {
+            width: 13px;
+            height: 13px;
+        }
+    }
+
+    .checkbox__text {
+        padding-left: 24px;
+    }
+}
+
+.checkbox_size_l {
+    font-size: 22px;
+
+    .checkbox__box {
+        top: 2px;
+
+        width: 18px;
+        height: 18px;
+
+        margin-right: 10px;
+
+        &:after {
+            width: 17px;
+            height: 16px;
+        }
+    }
+
+    .checkbox__text {
+        padding-left: 32px;
+    }
+}
+
+.checkbox_checked {
+
+    .checkbox__box:after {
+        visibility: visible;
+        opacity: 1;
+
+        transform: translateY(0px);
+        transition-delay: 0s;
+    }
+}
+
+.checkbox_disabled {
+    cursor: default;
+}
+
+.checkbox_type_button {
+    display: inline-block;
+
+    &.checkbox_checked .button__text {
+        font-weight: 300;
+    }
+}
+
+.checkbox_view_line {
+
+    &.checkbox_size_m {
+        margin-right: 13px;
+    }
+
+    &.checkbox_size_l {
+        margin-right: 15px;
+    }
+
+    &:last-child {
+        margin-right: 0;
+    }
+}
+
+.checkbox_invalid {
+
+    .checkbox__box {
+        border-color: rgba(248, 96, 101, .85);
+    }
+
+    &.checkbox_focused,
+    &.checkbox_hovered {
+
+        .checkbox__box {
+            border-color: rgba(248, 96, 101, .85);
+            box-shadow: 0px 0px 0px 1px rgba(248, 96, 101, .85);
+        }
+    }
+}

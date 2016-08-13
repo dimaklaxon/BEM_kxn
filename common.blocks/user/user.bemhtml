@@ -1,0 +1,9 @@
+block('user').content()(function() {
+    return {
+        block: 'link',
+        mods: this.mods,
+        url: this.ctx.url,
+        icon: this.ctx.icon,
+        text: this.ctx.text
+    };
+});

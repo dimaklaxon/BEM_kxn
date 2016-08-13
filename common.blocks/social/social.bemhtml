@@ -1,0 +1,45 @@
+block('social').content()(function() {
+    var ctx = this.ctx;
+    var mods = this.mods;
+
+    var networks = ctx.networks || [
+        { name: 'vk', url: 'https://vk.com/alfabank' },
+        { name: 'facebook', url: 'https://facebook.com/alfabank' },
+        { name: 'twitter', url: 'https://twitter.com/alfa_bank' }
+    ];
+
+    if (!Array.isArray(networks)) throw Error('Block can\'t use without networks array in mode networks');
+
+    return [
+        {
+            elem: 'list',
+            content: networks.map(function(network) {
+                return {
+                    block: 'link',
+                    mix: { block: 'social', elem: 'item' },
+                    url: network.url,
+                    content: {
+                        block: 'icon',
+                        mix: { block: 'social', elem: 'icon' },
+                        mods: {
+                            network: network.name,
+                            theme: mods.theme,
+                            size: 's'
+                        }
+                    }
+                };
+            })
+        },
+        {
+            elem: 'info',
+            content: [
+                {
+                    block: 'link',
+                    mods: { theme: mods.theme, size: 's' },
+                    url: '//alfabank.ru/internet/socmedia',
+                    text: 'Мы в соцмедиа'
+                }
+            ]
+        }
+    ];
+});

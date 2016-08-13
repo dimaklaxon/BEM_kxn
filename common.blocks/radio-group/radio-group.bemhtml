@@ -1,0 +1,3 @@
+block('radio-group').def()(function() {
+    return applyNext({ _view: this.ctx.mods.view });
+});

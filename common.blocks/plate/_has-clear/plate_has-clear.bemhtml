@@ -1,0 +1,19 @@
+block('plate').mod('has-clear', true)(
+    js()(true),
+    content()(function() {
+        return [
+            applyNext(),
+            {
+                elem: 'clear',
+                content: {
+                    block: 'icon',
+                    mods: {
+                       theme: 'alfa-on-white',
+                       tool: 'close',
+                       size: 'm'
+                    }
+                }
+            }
+        ];
+    })
+);

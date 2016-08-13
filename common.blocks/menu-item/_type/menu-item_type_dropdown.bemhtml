@@ -1,0 +1,32 @@
+block('menu-item').mod('type', 'dropdown')(
+    content()(function() {
+        return [{
+            block: 'dropdown',
+            mods: {
+                theme: this.mods.theme || this._menuMods.theme,
+                size: this.mods.size || this._menuMods.size,
+                switcher: 'link',
+                mode: 'hover',
+                target: 'anchor'
+            },
+            switcher: {
+                block: 'link',
+                mods: {
+                    theme: this.mods.theme || this._menuMods.theme,
+                    size: this.mods.size || this._menuMods.size,
+                    view: this.mods.view
+                },
+                text: this.ctx.content
+            },
+            popup: {
+                block: 'popup',
+                directions: ['top-left'],
+                mods: {
+                    theme: this.mods.theme || this._menuMods.theme,
+                    height: 'available'
+                },
+                content: this.ctx.popup
+            }
+        }];
+    })
+);

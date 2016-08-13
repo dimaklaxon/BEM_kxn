@@ -1,0 +1,24 @@
+block('select').elem('button')(
+    def()(function() {
+        var mods = this.mods;
+        return applyCtx({
+            block: 'button',
+            mix: { block: this.block, elem: this.elem },
+            mods: {
+                size: mods.size,
+                theme: mods.theme,
+                hovered: mods.hovered,
+                focused: mods.focused,
+                'focused-hard': mods['focused-hard'],
+                disabled: mods.disabled,
+                checked: mods.mode !== 'radio' && !!this._checkedOptions.length
+            },
+            id: this._select.id,
+            textMaxWidth: this._select.textMaxWidth,
+            content: [
+                { elem: 'text', content: (this._checkedOptions[0] || this._select).text },
+                { block: 'icon', mix: { block: 'select', elem: 'tick' } }
+            ]
+        });
+    })
+);
